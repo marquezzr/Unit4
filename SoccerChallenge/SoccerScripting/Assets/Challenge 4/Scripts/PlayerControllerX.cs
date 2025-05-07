@@ -31,9 +31,10 @@ public class PlayerControllerX : MonoBehaviour
         // Set powerup indicator position to beneath player
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.6f, 0);
 
+        // Add boost to player when spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            playerRb.AddForce(Vector3.forward * boost, ForceMode.Impulse);
+            playerRb.AddForce(focalPoint.transform.forward * verticalInput * boost, ForceMode.Impulse);
         }
 
     }
